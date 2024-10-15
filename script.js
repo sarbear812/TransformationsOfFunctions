@@ -1,103 +1,138 @@
-const transformations = [
-    {
-        description: "Shift the function \\(f(x) = |x|\\) left by 3 units.",
-        correctAnswer: "\\(f(x) = |x + 3|\\)",
-        options: [
-            "\\(f(x) = |x - 3|\\)",
-            "\\(f(x) = |x + 3|\\)",
-            "\\(f(x) = |x| - 3\\)",
-            "\\(f(x) = -|x|\\)",
-            "\\(f(x) = 3|x|\\)"
-        ]
-    },
-    {
-        description: "Reflect the function \\(f(x) = x^2\\) over the x-axis.",
-        correctAnswer: "\\(f(x) = -x^2\\)",
-        options: [
-            "\\(f(x) = -x^2\\)",
-            "\\(f(x) = x^2 + 1\\)",
-            "\\(f(x) = (x - 1)^2\\)",
-            "\\(f(x) = (x + 2)^2\\)",
-            "\\(f(x) = x^2 - 2\\)"
-        ]
-    },
-    {
-        description: "Stretch the function \\(f(x) = \\sqrt{x}\\) vertically by a factor of 2.",
-        correctAnswer: "\\(f(x) = 2\\sqrt{x}\\)",
-        options: [
-            "\\(f(x) = \\sqrt{x} + 2\\)",
-            "\\(f(x) = 2\\sqrt{x}\\)",
-            "\\(f(x) = \\sqrt{x - 2}\\)",
-            "\\(f(x) = \\sqrt{x} - 2\\)",
-            "\\(f(x) = \\sqrt{x + 2}\\)"
-        ]
-    },
-    {
-        description: "Shift the function \\(f(x) = \\sqrt[3]{x}\\) up by 4 units.",
-        correctAnswer: "\\(f(x) = \\sqrt[3]{x} + 4\\)",
-        options: [
-            "\\(f(x) = \\sqrt[3]{x} - 4\\)",
-            "\\(f(x) = \\sqrt[3]{x - 4}\\)",
-            "\\(f(x) = 4\\sqrt[3]{x}\\)",
-            "\\(f(x) = \\sqrt[3]{x} + 4\\)",
-            "\\(f(x) = -\\sqrt[3]{x}\\)"
-        ]
-    },
-    {
-        description: "Reflect the function \\(f(x) = x^3\\) over the y-axis.",
-        correctAnswer: "\\(f(x) = (-x)^3\\)",
-        options: [
-            "\\(f(x) = -x^3\\)",
-            "\\(f(x) = (-x)^3\\)",
-            "\\(f(x) = x^3 + 1\\)",
-            "\\(f(x) = (x + 3)^3\\)",
-            "\\(f(x) = x^3 - 3\\)"
-        ]
-    }
-];
+const questions = {
+    easy: [
+        {
+            description: "Shift the function \\(f(x) = |x|\\) left by 3 units.",
+            correctAnswer: "\\(f(x) = |x + 3|\\)",
+            options: [
+                "\\(f(x) = |x - 3|\\)",
+                "\\(f(x) = |x + 3|\\)",
+                "\\(f(x) = |x| - 3\\)",
+                "\\(f(x) = -|x|\\)",
+                "\\(f(x) = 3|x|\\)"
+            ]
+        },
+        {
+            description: "Reflect the function \\(f(x) = x^2\\) over the x-axis.",
+            correctAnswer: "\\(f(x) = -x^2\\)",
+            options: [
+                "\\(f(x) = -x^2\\)",
+                "\\(f(x) = x^2 + 1\\)",
+                "\\(f(x) = (x - 1)^2\\)",
+                "\\(f(x) = (x + 2)^2\\)",
+                "\\(f(x) = x^2 - 2\\)"
+            ]
+        }
+    ],
+    medium: [
+        {
+            description: "Shift the function \\(f(x) = |x|\\) left by 3 units and up by 2 units.",
+            correctAnswer: "\\(f(x) = |x + 3| + 2\\)",
+            options: [
+                "\\(f(x) = |x + 3| - 2\\)",
+                "\\(f(x) = |x - 3| + 2\\)",
+                "\\(f(x) = |x + 3| + 2\\)",
+                "\\(f(x) = |x| + 2\\)",
+                "\\(f(x) = |x - 3| - 2\\)"
+            ]
+        },
+        {
+            description: "Reflect the function \\(f(x) = x^2\\) over the x-axis and shift it right by 4 units.",
+            correctAnswer: "\\(f(x) = -(x - 4)^2\\)",
+            options: [
+                "\\(f(x) = -(x + 4)^2\\)",
+                "\\(f(x) = (x - 4)^2\\)",
+                "\\(f(x) = -(x - 4)^2\\)",
+                "\\(f(x) = (x + 4)^2\\)",
+                "\\(f(x) = -x^2 + 4\\)"
+            ]
+        }
+    ],
+    hard: [
+        {
+            description: "Stretch the function \\(f(x) = \\sqrt{x}\\) vertically by a factor of 3 and shift it left by 2 units.",
+            correctAnswer: "\\(f(x) = 3\\sqrt{x + 2}\\)",
+            options: [
+                "\\(f(x) = \\sqrt{3x + 2}\\)",
+                "\\(f(x) = 3\\sqrt{x + 2}\\)",
+                "\\(f(x) = \\sqrt{3(x + 2)}\\)",
+                "\\(f(x) = 3\\sqrt{x - 2}\\)",
+                "\\(f(x) = \\sqrt{x + 2} + 3\\)"
+            ]
+        },
+        {
+            description: "Shift the function \\(f(x) = \\sqrt[3]{x}\\) down by 3 units and reflect it over the x-axis.",
+            correctAnswer: "\\(f(x) = -\\sqrt[3]{x} - 3\\)",
+            options: [
+                "\\(f(x) = -\\sqrt[3]{x} - 3\\)",
+                "\\(f(x) = \\sqrt[3]{x} - 3\\)",
+                "\\(f(x) = -\\sqrt[3]{x} + 3\\)",
+                "\\(f(x) = \\sqrt[3]{x} + 3\\)",
+                "\\(f(x) = -\\sqrt[3]{x + 3}\\)"
+            ]
+        }
+    ]
+};
 
-let currentQuestionIndex = 0;
 let totalScore = 0;
+let currentQuestionIndex = 0;
+let shuffledQuestions = [];
+let questionAnswered = false;
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function startQuiz() {
+    shuffledQuestions = [...questions.easy, ...questions.medium, ...questions.hard];
+    shuffleArray(shuffledQuestions);
+    loadQuestion();
+}
 
 function loadQuestion() {
-    const question = transformations[currentQuestionIndex];
+    const question = shuffledQuestions[currentQuestionIndex];
     
     document.getElementById('transformation-description').innerHTML = question.description;
-    
     const answerOptions = document.getElementById('answer-options');
     answerOptions.innerHTML = '';
-    
+    questionAnswered = false;
+
     question.options.forEach((option) => {
         const li = document.createElement('li');
         li.innerHTML = option;
-        li.onclick = () => checkAnswer(option);
+        li.onclick = () => {
+            if (!questionAnswered) checkAnswer(option, li);
+        };
         answerOptions.appendChild(li);
     });
-    
+
     document.getElementById('feedback').innerHTML = '';
-    
-    // Render MathJax after the HTML is loaded
     MathJax.typesetPromise();
 }
 
-function checkAnswer(selectedOption) {
-    const correctAnswer = transformations[currentQuestionIndex].correctAnswer;
+function checkAnswer(selectedOption, selectedElement) {
+    const correctAnswer = shuffledQuestions[currentQuestionIndex].correctAnswer;
     let points = 0;
-    
+
     if (selectedOption === correctAnswer) {
         points = 20;
-        document.getElementById('feedback').innerText = 'Correct! Well done.';
-        document.getElementById('feedback').style.color = 'green';
+        selectedElement.style.backgroundColor = 'green';
+        document.getElementById('feedback').innerText = 'Correct!';
     } else {
         points = -5;
-        document.getElementById('feedback').innerText = 'Incorrect. Try again.';
-        document.getElementById('feedback').style.color = 'red';
+        selectedElement.style.backgroundColor = 'red';
+        document.getElementById('feedback').innerText = 'Incorrect.';
     }
-    
+
     totalScore += points;
+    questionAnswered = true;
+
+    const answerOptions = document.querySelectorAll('#answer-options li');
+    answerOptions.forEach(option => option.style.pointerEvents = 'none');
+
     updateScoreSheet(correctAnswer, points, totalScore);
-    
-    // Re-render MathJax in case of new content
     MathJax.typesetPromise();
 }
 
@@ -108,11 +143,11 @@ function updateScoreSheet(correctAnswer, points, runningTotal) {
     const correctAnswerCell = document.createElement('td');
     const pointsCell = document.createElement('td');
     const totalScoreCell = document.createElement('td');
-    
+
     correctAnswerCell.innerHTML = correctAnswer;
     pointsCell.innerText = points;
     totalScoreCell.innerText = runningTotal;
-    
+
     row.appendChild(correctAnswerCell);
     row.appendChild(pointsCell);
     row.appendChild(totalScoreCell);
@@ -121,9 +156,8 @@ function updateScoreSheet(correctAnswer, points, runningTotal) {
 }
 
 document.getElementById('next-btn').addEventListener('click', () => {
-    currentQuestionIndex = (currentQuestionIndex + 1) % transformations.length;
+    currentQuestionIndex = (currentQuestionIndex + 1) % shuffledQuestions.length;
     loadQuestion();
 });
 
-// Load the first question when the page loads
-window.onload = loadQuestion;
+window.onload = startQuiz;
