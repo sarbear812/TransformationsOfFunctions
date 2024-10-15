@@ -77,6 +77,7 @@ let totalScore = 0;
 let currentQuestionIndex = 0;
 let shuffledQuestions = [];
 let questionAnswered = false;
+let scoreRows = 0;
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -139,20 +140,49 @@ function checkAnswer(selectedOption, selectedElement) {
 function updateScoreSheet(correctAnswer, points, runningTotal) {
     const scoreSheet = document.getElementById('score-sheet').querySelector('tbody');
     
-    const row = document.createElement('tr');
-    const correctAnswerCell = document.createElement('td');
-    const pointsCell = document.createElement('td');
-    const totalScoreCell = document.createElement('td');
+    if (scoreRows < 11) {
+        const row = document.createElement('tr');
+        const correctAnswerCell = document.createElement('td');
+        const pointsCell = document.createElement('td');
+        const totalScoreCell = document.createElement('td');
 
-    correctAnswerCell.innerHTML = correctAnswer;
-    pointsCell.innerText = points;
-    totalScoreCell.innerText = runningTotal;
+        correctAnswerCell.innerHTML = correctAnswer;
+        pointsCell.innerText = points;
+        totalScoreCell.innerText = runningTotal;
 
-    row.appendChild(correctAnswerCell);
-    row.appendChild(pointsCell);
-    row.appendChild(totalScoreCell);
-    
-    scoreSheet.appendChild(row);
+        row.appendChild(correctAnswerCell);
+        row.appendChild(pointsCell);
+        row.appendChild(totalScoreCell);
+        
+        scoreSheet.appendChild(row);
+        scoreRows++;
+    } else {
+        const totalRow = document.createElement('tr');
+        const totalCell = document.createElement('td');
+        totalCell.colSpan = 2;
+        totalCell.innerText = "Total Score:";
+        
+        const finalTotalCell = document.createElement('td');
+        finalTotalCell.innerText = runningTotal;
+
+        totalRow.appendChild(totalCell);
+        totalRow.appendChild(finalTotalCell);
+        
+        scoreSheet.appendChild(totalRow);
+        
+        // Reset the score sheet for next set of rows
+        scoreRows = 0;
+        // Clear existing rows
+        while (scoreSheet.firstChild) {
+            scoreSheet.removeChild(scoreSheet.firstChild);
+        }
+        
+        // Append the new total row after clearing
+        scoreSheet.appendChild(totalRow);
+        
+        // Continue adding rows after clearing
+        updateScoreSheet(correctAnswer, points, runningTotal);
+    }
 }
 
 document.getElementById('next-btn').addEventListener('click', () => {
@@ -161,3 +191,4 @@ document.getElementById('next-btn').addEventListener('click', () => {
 });
 
 window.onload = startQuiz;
+
